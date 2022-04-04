@@ -1,0 +1,35 @@
+kibot:
+  version: 1
+
+preflight:
+  run_erc: false
+  run_drc: false
+  check_zone_fills: true
+  ignore_unconnected: false
+  update_xml: false
+
+outputs:
+
+  - name: 'PnP'
+    comment: "Pick and place"
+    type: position
+    dir: PnP
+    options:
+      output: "%f_cpl.%x"
+      format: CSV
+      units: millimeters
+      separate_files_for_front_and_back: true
+      only_smd: true
+      columns:
+        - id: Ref
+          name: Designator
+        - Val
+        - Package
+        - id: PosX
+          name: "Mid X"
+        - id: PosY
+          name: "Mid Y"
+        - id: Rot
+          name: Rotation
+        - id: Side
+          name: Layer
