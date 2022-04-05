@@ -4,6 +4,7 @@ kibot:
 preflight:
   filters:
     - filter: 'Ignore warning'
+      error: WARNING
       regexp: 'WARNING'
 
   run_erc: false
