@@ -2,6 +2,10 @@ kibot:
   version: 1
 
 preflight:
+  filters:
+    - filter: 'Ignore warning'
+      regexp: 'WARNING'
+
   run_erc: false
   run_drc: true
   check_zone_fills: true
