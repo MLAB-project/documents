@@ -9,8 +9,8 @@ outputs:
     type: pdf_pcb_print
     dir: docs
     options:
-      - mirror: true
-        scaling: 0
+      mirror: true
+      scaling: 0
     layers: 
       - B.Fab
       - Edge.Cuts
@@ -19,7 +19,7 @@ outputs:
     type: pdf_pcb_print
     dir: docs
     options:
-      - scaling: 0
+      scaling: 0
     layers:
       - F.Fab
       - Edge.Cuts

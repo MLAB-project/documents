@@ -7,4 +7,5 @@ global:
 outputs:
   - name: 'Report'
     type: report
-    dir: '%f-%i%I%v.md'
+    options:
+      output: '${GITHUB_REF##*/}%f-%i%I%v.md'
