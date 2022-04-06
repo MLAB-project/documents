@@ -9,7 +9,7 @@ preflight:
   update_xml: false
 
 outputs:
-  - name: 'default black png top'
+  - name: 'white png top'
     type: 'pcbdraw'
     dir: 'img'
     options:
@@ -27,7 +27,7 @@ outputs:
       # [list(string)=[]] list of libraries
       libs: []
       # [boolean=false] mirror the board
-      mirror: true
+      mirror: false
       # [boolean=false] do not make holes transparent
       no_drillholes: false
       # [string='%f-%i%v.%x'] name for the generated file. Affected by global options
@@ -48,8 +48,9 @@ outputs:
       vcuts: false
       # [string='visible'] [visible,all,none] using visible only the warnings about components in the visible side are generated
       warnings: 'none'
+      margin: 5
 
-  - name: 'default black png bottom'
+  - name: 'white png bottom'
     type: 'pcbdraw'
     dir: 'img'
     options:
@@ -67,7 +68,7 @@ outputs:
       # [list(string)=[]] list of libraries
       libs: []
       # [boolean=false] mirror the board
-      mirror: true
+      mirror: false
       # [boolean=false] do not make holes transparent
       no_drillholes: false
       # [string='%f-%i%v.%x'] name for the generated file. Affected by global options
@@ -88,3 +89,4 @@ outputs:
       vcuts: false
       # [string='visible'] [visible,all,none] using visible only the warnings about components in the visible side are generated
       warnings: 'none'
+      margin: 5
