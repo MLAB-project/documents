@@ -6,6 +6,7 @@ on:
       - '**.kicad_pcb'
       - '**.kicad_sch'
       - '**.kicad_pro'
+      - 'doc/assets'
   workflow_dispatch:
   
 env:
@@ -252,6 +253,8 @@ jobs:
     - uses: actions/checkout@v3
       with:
         ref: ${{ github.head_ref }}
+        token: ${{ secrets.pat }}
+
     
     - run: |
         git pull --force --rebase || true
