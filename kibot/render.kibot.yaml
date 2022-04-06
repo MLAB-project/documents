@@ -48,8 +48,9 @@ outputs:
       vcuts: false
       # [string='visible'] [visible,all,none] using visible only the warnings about components in the visible side are generated
       warnings: 'none'
+      margin: 5
 
-  - name: 'default black png bottom'
+  - name: 'white png bottom'
     type: 'pcbdraw'
     dir: 'img'
     options:
@@ -88,3 +89,4 @@ outputs:
       vcuts: false
       # [string='visible'] [visible,all,none] using visible only the warnings about components in the visible side are generated
       warnings: 'none'
+      margin: 5
