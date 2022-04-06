@@ -8,4 +8,4 @@ outputs:
   - name: 'Report'
     type: report
     options:
-      output: '%f-%i%I%v.md'
+      output: 'README.md'
