@@ -6,6 +6,7 @@ on:
       - '**.kicad_pcb'
       - '**.kicad_sch'
       - '**.kicad_pro'
+      - '**.yml'
       - 'doc/assets'
   workflow_dispatch:
   
