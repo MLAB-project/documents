@@ -1,5 +1,8 @@
 kibot:
   version: 1
+  
+preflight:
+  update_xml: true
 
 global:
    kiauto_time_out_scale: 10
@@ -9,54 +12,9 @@ outputs:
     type: report
     options:
       output: 'README.md'
-
-  - name: 'bom.csv'
-    type: 'kibom'
+      
+  - name: 'bom'
+    comment: "Bill of Materials in CSV format"
+    type: bom
     options:
-      conf:
-        columns:
-          - References
-          - Description
-          - Part
-          - Value
-          - UST_ID
-          - field: Quantity Per PCB
-            name: Qty
-        component_aliases: [['r', 'r_small', 'res', 'resistor'], ['l', 'l_small', 'inductor'], ['c', 'c_small', 'cap', 'capacitor'], ['sw', 'switch'], ['zener', 'zenersmall'], ['d', 'diode', 'd_small']]
-        # [string=''] Column with links to the datasheet (HTML only)
-        group_connectors: true
-        group_fields: ['Part', 'Part Lib', 'Value', 'Footprint', 'Footprint Lib']
-        # group_fields: ['']
-        # [boolean=false] Hide column headers
-        hide_headers: false
-        # [boolean=false] Hide project information
-        hide_pcb_info: false
-        # [boolean=true] Generate a separated section for DNF (Do Not Fit) components (HTML only)
-        html_generate_dnf: true
-        # [boolean=true] Exclude DNF (Do Not Fit) components
-        ignore_dnf: true
-        # [list(dict)] A series of regular expressions used to select included parts.
-        # If there are any regex defined here, only components that match against ANY of them will be included.
-        # Column names are case-insensitive.
-        # If empty all the components are included
-        # include_only:
-          # [string=''] Name of the column to apply the regular expression
-          # column: ''
-          # `field` is an alias for `column`
-          # [string=''] Regular expression to match
-          # regex: ''
-          # `regexp` is an alias for `regex`
-        # [boolean=true] Component groups with blank fields will be merged into the most compatible group, where possible
-        merge_blank_fields: false
-        # [boolean=true] First column is the row number
-        number_rows: true
-        # [boolean=true] Each component group will be tested against a number of regular-expressions (see ``).
-        test_regex: true
-        # [boolean=false] Print grouped references in the alternate compressed style eg: R1-R7,R18
-        use_alt: false
-      # [string='HTML'] [HTML,CSV,XML,XLSX] format for the BoM
-      format: 'CSV'
-      # [number=1] Number of boards to build (components multiplier)
-      number: 1
-      # [string='%f-%i%v.%x'] filename for the output (%i=bom). Affected by global options
-      output: '%f.%x'
+      group_fields: ['Part', 'Part Lib', 'Value', 'Footprint', 'Footprint Lib']
