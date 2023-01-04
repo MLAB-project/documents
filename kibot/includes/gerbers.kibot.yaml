@@ -92,7 +92,7 @@ outputs:
     type: position
     dir: gerbers/PnP
     options:
-      output: "%f_cpl.%x"
+      output: "%f_cpl_%i.%x"
       format: CSV
       units: millimeters
       separate_files_for_front_and_back: true
