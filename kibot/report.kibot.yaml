@@ -1,6 +1,6 @@
 kibot:
   version: 1
-  
+
 preflight:
   update_xml: true
 
@@ -12,7 +12,8 @@ outputs:
     type: report
     options:
       output: 'README.md'
-      
+      template: 'full_svg'
+
   - name: 'bom'
     comment: "Bill of Materials in CSV format"
     type: bom
