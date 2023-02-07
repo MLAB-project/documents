@@ -4,5 +4,5 @@
 #  a je umisten v `/doc/assets`
 #
 
-mkdir -p ../../.github/workflows
+mkdir -p ../../../.github/workflows
 cp kicad_outputs.yml ../../../.github/workflows/kicad_outputs.yml
