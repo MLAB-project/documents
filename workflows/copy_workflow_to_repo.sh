@@ -5,4 +5,4 @@
 #
 
 mkdir -p ../../.github/workflows
-cp workflows/kicad_outputs.yml ../../.github/workflows/kicad_outputs.yml
+cp kicad_outputs.yml ../../../.github/workflows/kicad_outputs.yml
