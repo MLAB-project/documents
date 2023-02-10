@@ -6,3 +6,4 @@
 
 mkdir -p ../../../.github/workflows
 cp kicad_outputs.yml ../../../.github/workflows/kicad_outputs.yml
+cp update_actions.yml ../../../.github/workflows/update_actions.yml
