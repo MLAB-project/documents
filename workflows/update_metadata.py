@@ -15,9 +15,13 @@ print(repo)
 config_file = 'doc/metadata.yaml'
 new = 0
 
-stream = open(config_file, 'r+')
-data = yaml.full_load(stream)
-stream.close()
+try:
+    stream = open(config_file, 'r')
+    data = yaml.full_load(stream)
+    stream.close()
+except:
+    print("Soubor neexistuje")
+    data = None
 
 stream = open(config_file, 'w+')
 print(data, type(data))
