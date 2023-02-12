@@ -7,6 +7,7 @@ import yaml
 from yaml import load, dump
 from yaml import CLoader as Loader, CDumper as Dumper
 import os
+from glob import glob
 
 g = Github(os.environ['gh_token'])
 repo = g.get_repo(os.environ['gh_repository'])
@@ -45,6 +46,22 @@ data['github_branch'] = os.environ.get('gh_branch', "repository_branch")
 data['tags'] = repo.get_topics()
 
 data['title'] = data['github_repo']
+
+if not 'images' in data:
+    images = glob("**/*.jpg", recursive=True)
+    images.extend(glob("**/*.JPG", recursive=True))
+    images.extend(glob("**/*.png", recursive=True))
+    images.extend(glob("**/*.PNG", recursive=True))
+    images.extend(glob("**/*.gif", recursive=True))
+    images.extend(glob("**/*.GIF", recursive=True))
+    images.extend(glob("**/*.svg", recursive=True))
+    images.extend(glob("**/*.SVG", recursive=True))
+    data['images'] = images
+
+# try to guess schematics file
+scheme = glob("doc/**/*schematic.pdf", recursive=True)
+if len(scheme):
+    data['mod_scheme'] = scheme[0]
 
 print(data)
 yaml.dump(data, stream)
