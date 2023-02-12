@@ -9,15 +9,16 @@ from yaml import CLoader as Loader, CDumper as Dumper
 import os
 
 g = Github(os.environ['gh_token'])
-repo_parameters = g.get_repo(os.environ['gh_repository'])
-print(repo_parameters)
+repo = g.get_repo(os.environ['gh_repository'])
+print(repo)
 
 config_file = 'doc/metadata.yaml'
 new = 0
-stream = open(config_file, 'r')
+
+stream = open(config_file, 'r+')
+data = yaml.full_load(stream)
 stream.close()
 
-data = yaml.full_load(stream)
 stream = open(config_file, 'w+')
 print(data, type(data))
 
@@ -32,11 +33,12 @@ else:
 if new:
     pass
 
-#data['description'] = os.environ.get('gh_description', "Github Description")
+data['description'] = repo.description
 data['github_url'] = os.environ.get('gh_url', "https://www.github.com/MLAB-project")
 #data['github_org'] = os.environ.get('gh_org', 'repository_org')
 data['github_repo'] = os.environ.get('gh_repo', "repository_name")
 data['github_branch'] = os.environ.get('gh_branch', "repository_branch")
+data['tags'] = repo.get_topics()
 
 data['title'] = data['github_repo']
 
