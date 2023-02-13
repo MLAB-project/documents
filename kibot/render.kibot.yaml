@@ -91,9 +91,7 @@ outputs:
       warnings: 'none'
       margin: 5
 
-
-outputs:
-  - name: 'white png top'
+  - name: 'white svg top'
     type: 'pcbdraw'
     dir: 'img'
     options:
