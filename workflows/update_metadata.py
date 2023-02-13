@@ -58,7 +58,7 @@ if not 'images' in data:
     images.extend(glob("**/*.SVG", recursive=True))
     
     data['images'] = []
-    for x n images:
+    for x in images:
         if 'doc/assets' not in x:
             data['images'].append(x)
 
