@@ -43,6 +43,7 @@ data['site'] = os.environ.get('gh_url', "https://www.github.com/MLAB-project")+o
 #data['color'] = "white"
 data['bom'] = ''
 data['gerbers'] = 'hw/cam_profi/'
+data['eda'] = []
 data['eda']['type'] = 'kicad'
 data['eda']['pcb'] = 'hw/sch_pcb/'++os.environ.get('gh_repo', "repository_name")+'.kicad_pcb'
     
