@@ -23,3 +23,19 @@ outputs:
     layers:
       - F.Fab
       - Edge.Cuts
+
+  - name: 'SVG print'
+    type: pcb_print
+    dir: docs
+    options:
+      mirror: true
+      scaling: 0
+      plot_sheet_reference: false
+      format: 'svg'
+    pages:
+      - layers: 
+        - B.Fab
+        - Edge.Cuts
+      - layers: 
+        - B.Fab
+        - Edge.Cuts
