@@ -31,7 +31,7 @@ if data:
     new = 0
 else:
     data = {}
-    data['homepage'] = True
+    data['homepage'] = False
     data['mark'] = 50
     new = 1
 
