@@ -31,15 +31,13 @@ if data:
     new = 0
 else:
     data = {}
-    data['homepage'] = False
-    data['mark'] = 50
     new = 1
 
 if new:
     pass
 
 data['summary'] = repo.description
-data['site'] = os.environ.get('gh_url', "https://www.github.com/MLAB-project")+os.environ.get('gh_repo', "repository_name")
+data['site'] = os.environ.get('gh_url', "https://www.github.com/MLAB-project")
 #data['color'] = "white"
 data['bom'] = ''
 data['gerbers'] = 'hw/cam_profi/'
