@@ -13,9 +13,3 @@ outputs:
     options:
       output: 'README.md'
       template: 'full_svg'
-
-  - name: 'bom'
-    comment: "Bill of Materials in CSV format"
-    type: bom
-    options:
-      group_fields: ['Part', 'Part Lib', 'Value', 'Footprint', 'Footprint Lib']
