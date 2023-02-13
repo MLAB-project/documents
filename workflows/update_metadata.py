@@ -59,7 +59,8 @@ if not 'images' in data:
     
     data['images'] = []
     for x in images:
-        if 'doc/assets' not in x:
+        if "asset" not in x:
+            print("Add", x)
             data['images'].append(x)
 
 # try to guess schematics file
