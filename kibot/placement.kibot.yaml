@@ -32,10 +32,10 @@ outputs:
       scaling: 0
       plot_sheet_reference: false
       format: 'SVG'
-    pages:
-      - layers: 
-        - B.Fab
-        - Edge.Cuts
-      - layers: 
-        - B.Fab
-        - Edge.Cuts
+      pages:
+        - layers: 
+          - B.Fab
+          - Edge.Cuts
+        - layers: 
+          - B.Fab
+          - Edge.Cuts
