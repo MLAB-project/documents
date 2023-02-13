@@ -57,7 +57,7 @@ if not 'images' in data:
     images.extend(glob("**/*.svg", recursive=True))
     images.extend(glob("**/*.SVG", recursive=True))
     
-    data['images] = [x if 'doc/assets' not in x; for x in images]
+    data['images'] = [x if 'doc/assets' not in x; for x in images]
 
 
 # try to guess schematics file
