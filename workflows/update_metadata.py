@@ -63,6 +63,11 @@ scheme = glob("doc/**/*schematic.pdf", recursive=True)
 if len(scheme):
     data['mod_scheme'] = scheme[0]
 
+scheme = glob("hw/**/*ibom.html", recursive=True)
+if len(scheme):
+    data['mod_ibom'] = scheme[0]
+
+    
 print(data)
 yaml.dump(data, stream)
 stream.close()
