@@ -41,7 +41,7 @@ if new:
 data['summary'] = repo.description
 data['site'] = os.environ.get('gh_url', "https://www.github.com/MLAB-project")+os.environ.get('gh_repo', "repository_name")
 #data['color'] = "white"
-data['bom'] = 
+data['bom'] = ''
 data['gerbers'] = 'hw/cam_profi/'
 data['eda']['type'] = 'kicad'
 data['eda']['pcb'] = 'hw/sch_pcb/'++os.environ.get('gh_repo', "repository_name")+'.kicad_pcb'
