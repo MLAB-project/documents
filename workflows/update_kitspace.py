@@ -45,7 +45,7 @@ data['bom'] = ''
 data['gerbers'] = 'hw/cam_profi/'
 data['eda'] = {}
 data['eda']['type'] = 'kicad'
-data['eda']['pcb'] = 'hw/sch_pcb/'++os.environ.get('gh_repo', "repository_name")+'.kicad_pcb'
+data['eda']['pcb'] = 'hw/sch_pcb/'+os.environ.get('gh_repo', "repository_name")+'.kicad_pcb'
     
 print(data)
 yaml.dump(data, stream)
