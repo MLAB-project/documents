@@ -245,7 +245,7 @@ jobs:
   UPDATE_REPO:
     runs-on: ubuntu-latest
     name: Update repository
-    needs: [graphics, gerbers, schematics, placement, report]
+    needs: [graphics, gerbers, schematics, placement, report, ibom]
     steps:
     - uses: actions/checkout@v3
       with:
