@@ -123,7 +123,10 @@ jobs:
         if: ${{ success() }}
         with:
           name: doc_placement
-          path: ${{ env.dir }}_docs/**/*.pdf
+          path: |
+            ${{ env.dir }}_docs/**/*.pdf
+            ${{ env.dir }}_docs/**/*.svg
+            
 
   report:
     runs-on: ubuntu-latest
