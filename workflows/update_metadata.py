@@ -47,21 +47,21 @@ data['tags'] = repo.get_topics()
 
 data['title'] = data['github_repo']
 
-if not 'images' in data:
-    images = glob("**/*.jpg", recursive=True)
-    images.extend(glob("**/*.JPG", recursive=True))
-    images.extend(glob("**/*.png", recursive=True))
-    images.extend(glob("**/*.PNG", recursive=True))
-    images.extend(glob("**/*.gif", recursive=True))
-    images.extend(glob("**/*.GIF", recursive=True))
-    images.extend(glob("**/*.svg", recursive=True))
-    images.extend(glob("**/*.SVG", recursive=True))
-    
-    data['images'] = []
-    for x in images:
-        if "asset" not in x:
-            print("Add", x)
-            data['images'].append(x)
+#if not 'images' in data:
+images = glob("**/*.jpg", recursive=True)
+images.extend(glob("**/*.JPG", recursive=True))
+images.extend(glob("**/*.png", recursive=True))
+images.extend(glob("**/*.PNG", recursive=True))
+images.extend(glob("**/*.gif", recursive=True))
+images.extend(glob("**/*.GIF", recursive=True))
+images.extend(glob("**/*.svg", recursive=True))
+images.extend(glob("**/*.SVG", recursive=True))
+
+data['images'] = []
+for x in images:
+    if "asset" not in x:
+        print("Add", x)
+        data['images'].append(x)
 
 # try to guess schematics file
 scheme = glob("doc/**/*schematic.pdf", recursive=True)
