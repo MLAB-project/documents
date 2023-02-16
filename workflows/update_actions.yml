@@ -16,6 +16,11 @@ jobs:
           token: ${{ secrets.pat }}
           ref: ${{ github.head_ref }}
           
+      - name: Update submodules
+        run: |
+          git -C doc/assets config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+          git submodule sync doc/assets
+          git submodule update --init --remote doc/assets
           
       - name: Update submodules
         run: |
