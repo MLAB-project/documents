@@ -146,4 +146,4 @@ outputs:
       #  filename: '%i.%x'
       # [boolean=false] use the auxiliar axis as origin for coordinates
       zeros_format: "SUPPRESS_LEADING"
-      #use_aux_axis_as_origin: true
+      use_aux_axis_as_origin: true
