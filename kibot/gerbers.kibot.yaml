@@ -145,4 +145,5 @@ outputs:
         # (%i='drill_report' %x='txt')
       #  filename: '%i.%x'
       # [boolean=false] use the auxiliar axis as origin for coordinates
-      use_aux_axis_as_origin: true
+      zeros_format: "SUPPRESS_LEADING"
+      #use_aux_axis_as_origin: true
