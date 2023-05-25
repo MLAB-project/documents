@@ -66,7 +66,7 @@ for x in images:
         data['images'].append(x)
 
 if not 'image' in data:
-    if len(data['images')):
+    if len(data['images']):
         data['image'] = data['images'][0]
     
 # try to guess schematics file
