@@ -43,7 +43,7 @@ data['github_url'] = os.environ.get('gh_url', "https://www.github.com/MLAB-proje
 #data['github_org'] = os.environ.get('gh_org', 'repository_org')
 data['github_repo'] = os.environ.get('gh_repo', "repository_name")
 data['github_branch'] = os.environ.get('gh_branch', "repository_branch")
-data['github_branches'] = [b for b in repo.get_branches() if data['github_repo'] in b]
+data['github_branches'] = repo.get_branches()
 data['tags'] = repo.get_topics()
 
 data['title'] = data['github_repo']
