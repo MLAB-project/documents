@@ -43,27 +43,32 @@ data['github_url'] = os.environ.get('gh_url', "https://www.github.com/MLAB-proje
 #data['github_org'] = os.environ.get('gh_org', 'repository_org')
 data['github_repo'] = os.environ.get('gh_repo', "repository_name")
 data['github_branch'] = os.environ.get('gh_branch', "repository_branch")
-data['github_branches'] = repo.get_branches()
+data['github_branches'] = [b.name for b in repo.get_branches()]
+data['issues'] = repo.get_issues(state='open').totalCount
 data['tags'] = repo.get_topics()
 
 data['title'] = data['github_repo']
 
-if not 'images' in data:
-    images = glob("**/*.jpg", recursive=True)
-    images.extend(glob("**/*.JPG", recursive=True))
-    images.extend(glob("**/*.png", recursive=True))
-    images.extend(glob("**/*.PNG", recursive=True))
-    images.extend(glob("**/*.gif", recursive=True))
-    images.extend(glob("**/*.GIF", recursive=True))
-    images.extend(glob("**/*.svg", recursive=True))
-    images.extend(glob("**/*.SVG", recursive=True))
-    
-    data['images'] = []
-    for x in images:
-        if "asset" not in x:
-            print("Add", x)
-            data['images'].append(x)
+#if not 'images' in data:
+images = glob("**/*.jpg", recursive=True)
+images.extend(glob("**/*.JPG", recursive=True))
+images.extend(glob("**/*.png", recursive=True))
+images.extend(glob("**/*.PNG", recursive=True))
+images.extend(glob("**/*.gif", recursive=True))
+images.extend(glob("**/*.GIF", recursive=True))
+images.extend(glob("**/*.svg", recursive=True))
+images.extend(glob("**/*.SVG", recursive=True))
 
+data['images'] = []
+for x in images:
+    if "asset" not in x:
+        print("Add", x)
+        data['images'].append(x)
+
+if not 'image' in data:
+    if len(data['images')):
+        data['image'] = data['images'][0]
+    
 # try to guess schematics file
 scheme = glob("doc/**/*schematic.pdf", recursive=True)
 if len(scheme):
