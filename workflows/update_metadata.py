@@ -65,6 +65,10 @@ for x in images:
         print("Add", x)
         data['images'].append(x)
 
+if not 'image' in data:
+    if len(data['images')):
+        data['image'] = data['images'][0]
+    
 # try to guess schematics file
 scheme = glob("doc/**/*schematic.pdf", recursive=True)
 if len(scheme):
