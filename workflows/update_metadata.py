@@ -39,7 +39,7 @@ if new:
     pass
 
 data['description'] = repo.description
-data['github_url'] = os.environ.get('gh_url', "https://www.github.com/ThunderFly-aerospace")
+data['github_url'] = os.environ.get('gh_url', "https://www.github.com/MLAB-project")
 #data['github_org'] = os.environ.get('gh_org', 'repository_org')
 data['github_repo'] = os.environ.get('gh_repo', "repository_name")
 data['github_branch'] = os.environ.get('gh_branch', "repository_branch")
