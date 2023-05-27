@@ -23,14 +23,14 @@ outputs:
       dpi: 600
       format: 'png'
       highlight: []
-      libs: ['/usr/share/pcbdraw/footprints/KiCAD-base', '/github/workspace/doc/assets/templates/PcbDraw-Lib/KiCAD-base']
+      libs: ['/github/workspace/doc/assets/templates/PcbDraw-Lib/KiCAD-base', '/github/workspace/doc/assets/templates/PcbDraw-Lib/MLAB-base']
       mirror: false
       no_drillholes: false
       output: '%f-%i.%x'
       placeholder: false
       remap:
       show_components: all
-      style: 'doc/assets/kibot/styles/tf.json'
+      style: 'doc/assets/kibot/styles/mlab.json'
       variant: ''
       vcuts: false
       warnings: 'none'
@@ -45,14 +45,14 @@ outputs:
       dpi: 600
       format: 'png'
       highlight: []
-      libs: ['/usr/share/pcbdraw/footprints/KiCAD-base', '/github/workspace/doc/assets/templates/PcbDraw-Lib/KiCAD-base']
+      libs: ['/github/workspace/doc/assets/templates/PcbDraw-Lib/KiCAD-base', '/github/workspace/doc/assets/templates/PcbDraw-Lib/MLAB-base']
       mirror: false
       no_drillholes: false
       output: '%f-%i.%x'
       placeholder: false
       remap:
       show_components: all
-      style: 'doc/assets/kibot/styles/tf.json'
+      style: 'doc/assets/kibot/styles/mlab.json'
       variant: ''
       vcuts: false
       warnings: 'none'
@@ -74,7 +74,7 @@ outputs:
       # [list(string)=[]] list of components to highlight
       highlight: []
       # [list(string)=[]] list of libraries
-      libs: ['/usr/share/pcbdraw/footprints/KiCAD-base', '/github/workspace/doc/assets/templates/PcbDraw-Lib/KiCAD-base']
+      libs: ['/github/workspace/doc/assets/templates/PcbDraw-Lib/KiCAD-base', '/github/workspace/doc/assets/templates/PcbDraw-Lib/MLAB-base']
       # [boolean=false] mirror the board
       mirror: false
       # [boolean=false] do not make holes transparent
@@ -90,7 +90,7 @@ outputs:
       show_components: all
       # [string|dict] PCB style (colors). An internal name, the name of a JSON file or the style options
       #style: '/usr/share/pcbdraw/styles/set-black-cu.json'
-      style: 'doc/assets/kibot/styles/tf.json'
+      style: 'doc/assets/kibot/styles/mlab.json'
       # [string=''] Board variant to apply
       variant: ''
       # [boolean=false] render V-CUTS on the Cmts.User layer
@@ -116,7 +116,7 @@ outputs:
       # [list(string)=[]] list of components to highlight
       highlight: []
       # [list(string)=[]] list of libraries
-      libs: ['/usr/share/pcbdraw/footprints/KiCAD-base', '/github/workspace/doc/assets/templates/PcbDraw-Lib/KiCAD-base']
+      libs: ['/github/workspace/doc/assets/templates/PcbDraw-Lib/KiCAD-base', '/github/workspace/doc/assets/templates/PcbDraw-Lib/MLAB-base']
       # [boolean=false] mirror the board
       mirror: false
       # [boolean=false] do not make holes transparent
@@ -132,7 +132,7 @@ outputs:
       show_components: all
       # [string|dict] PCB style (colors). An internal name, the name of a JSON file or the style options
       #style: '/usr/share/pcbdraw/styles/set-black-cu.json'
-      style: 'doc/assets/kibot/styles/tf.json'
+      style: 'doc/assets/kibot/styles/mlab.json'
       # [string=''] Board variant to apply
       variant: ''
       # [boolean=false] render V-CUTS on the Cmts.User layer
