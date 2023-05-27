@@ -1,12 +1,15 @@
 kibot:
   version: 1
 
-# preflight:
-#   run_erc: false
-#   run_drc: false
-#   check_zone_fills: false
-#   ignore_unconnected: false
-#   update_xml: false
+preflight:
+  run_erc: false
+  run_drc: false
+  check_zone_fills: true
+  ignore_unconnected: false
+  update_xml:
+    enabled: true
+    check_pcb_parity: true
+    as_warnings: true
 
 #   pcb_replace:
 #     date_command: date -d @`git log -1 --format='%at' -- $KIBOT_PCB_NAME` +%Y-%m-%d_%H-%M-%S

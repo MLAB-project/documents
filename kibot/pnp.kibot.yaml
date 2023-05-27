@@ -6,7 +6,10 @@ preflight:
   run_drc: false
   check_zone_fills: true
   ignore_unconnected: false
-  update_xml: false
+  update_xml:
+    enabled: true
+    check_pcb_parity: true
+    as_warnings: true
 
 outputs:
 

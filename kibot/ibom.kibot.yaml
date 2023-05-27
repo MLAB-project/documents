@@ -1,6 +1,16 @@
 kibot:
   version: 1
-
+  
+preflight:
+  run_erc: false
+  run_drc: false
+  check_zone_fills: true
+  ignore_unconnected: false
+  update_xml:
+    enabled: true
+    check_pcb_parity: true
+    as_warnings: true
+  
 global:
    kiauto_time_out_scale: 15
 
