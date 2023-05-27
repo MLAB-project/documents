@@ -39,12 +39,10 @@ if new:
     pass
 
 data['description'] = repo.description
-data['github_url'] = os.environ.get('gh_url', "https://www.github.com/MLAB-project")
+data['github_url'] = os.environ.get('gh_url', "https://www.github.com/ThunderFly-aerospace")
 #data['github_org'] = os.environ.get('gh_org', 'repository_org')
 data['github_repo'] = os.environ.get('gh_repo', "repository_name")
 data['github_branch'] = os.environ.get('gh_branch', "repository_branch")
-data['github_branches'] = [b.name for b in repo.get_branches()]
-data['issues'] = repo.get_issues(state='open').totalCount
 data['tags'] = repo.get_topics()
 
 data['title'] = data['github_repo']
@@ -65,10 +63,6 @@ for x in images:
         print("Add", x)
         data['images'].append(x)
 
-if not 'image' in data:
-    if len(data['images']):
-        data['image'] = data['images'][0]
-    
 # try to guess schematics file
 scheme = glob("doc/**/*schematic.pdf", recursive=True)
 if len(scheme):
