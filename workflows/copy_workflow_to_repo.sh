@@ -10,6 +10,7 @@ if [ -n "$(find ../../../ -name *kicad_*  2>/dev/null)" ]
 then
         cp kicad_outputs.yml ../../../.github/workflows/kicad_outputs.yml
 else
+        rm ../../../.github/workflows/kicad_outputs.yml || true
         echo "Kicad nenalezen"
 fi
 cp update_actions.yml ../../../.github/workflows/update_actions.yml
