@@ -116,7 +116,9 @@ jobs:
         if: ${{ success() }}
         with:
           name: doc_xml
-          path: hw/sch_pcb/*.xml
+          path: |
+            hw/sch_pcb/*.xml
+            hw/sch_pcb/*.csv
 
       # Zde se zahazuji debugovaci videa
       - uses: actions/upload-artifact@v3
