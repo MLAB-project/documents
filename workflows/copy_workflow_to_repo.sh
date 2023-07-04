@@ -5,7 +5,7 @@
 #
 
 mkdir -p ../../../.github/workflows
-if [ -n "$(find ../../../ -name *kicad*  2>/dev/null)" ]
+if [ -n "$(find ../../../ -name *kicad_*  2>/dev/null)" ]
 then
         cp kicad_outputs.yml ../../../.github/workflows/kicad_outputs.yml
 else
