@@ -5,11 +5,14 @@
 #
 
 mkdir -p ../../../.github/workflows
-if [ -n "$(find ../../../ -name *kicad_*  2>/dev/null)" ]
+
+if [ "$(find ../../../hw -name '*kicad_pro'  2>/dev/null)" ]
 then
-        cp kicad_outputs.yml ../../../.github/workflows/kicad_outputs.yml
+	echo "This is KICAD project"
+	cp kicad_outputs.yml ../../../.github/workflows/kicad_outputs.yml
 else
-        echo "Kicad nenalezen"
+   rm ../../../.github/workflows/kicad_outputs.yml 2>/dev/null || true
+   echo "Kicad not found"
 fi
 cp update_actions.yml ../../../.github/workflows/update_actions.yml
 cp metadata_updater.yml ../../../.github/workflows/metadata_updater.yml
