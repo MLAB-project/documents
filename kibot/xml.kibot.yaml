@@ -20,5 +20,6 @@ outputs:
   - name: 'bom'
     comment: "Bill of Materials in CSV format"
     type: bom
+    dir: hw/sch_pcb/
     options:
       group_fields: ['Part', 'Part Lib', 'Value', 'Footprint', 'Footprint Lib']
