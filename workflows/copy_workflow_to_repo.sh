@@ -6,7 +6,7 @@
 
 mkdir -p ../../../.github/workflows
 
-if [ "$(find ../../../hw -name *kicad_*  2>/dev/null)" ]
+if [ "$(find ../../../hw -name '*kicad_pro'  2>/dev/null)" ]
 then
 	echo "This is KICAD project"
 	cp kicad_outputs.yml ../../../.github/workflows/kicad_outputs.yml
