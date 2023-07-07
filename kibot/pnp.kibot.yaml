@@ -21,8 +21,33 @@ outputs:
       output: "%f_cpl_%i.%x"
       format: CSV
       units: millimeters
-      separate_files_for_front_and_back: true
+      separate_files_for_front_and_back: false
       only_smd: true
+      columns:
+        - id: Ref
+          name: Designator
+        - Val
+        - Package
+        - id: PosX
+          name: "Mid X"
+        - id: PosY
+          name: "Mid Y"
+        - id: Rot
+          name: Rotation
+        - id: Side
+          name: Layer
+
+
+  - name: 'PnP all'
+    comment: "Pick and place"
+    type: position
+    dir: PnP
+    options:
+      output: "%f_cpl_%i.%x"
+      format: CSV
+      units: millimeters
+      separate_files_for_front_and_back: false
+      only_smd: false
       columns:
         - id: Ref
           name: Designator
