@@ -22,3 +22,5 @@ outputs:
     type: kibom
     options:
       format: CSV  # HTML or CSV
+      conf:
+        hide_pcb_info: true
