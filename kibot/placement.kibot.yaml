@@ -44,8 +44,8 @@ outputs:
         - layers: 
           - B.Fab
           - Edge.Cuts
-          mirror: false
+          mirror: true
         - layers: 
           - F.Fab
           - Edge.Cuts
-          mirror: true
+          mirror: false
