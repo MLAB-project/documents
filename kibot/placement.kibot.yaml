@@ -73,3 +73,28 @@ outputs:
           name: Rotation
         - id: Side
           name: Layer
+
+
+  - name: 'PnP sides'
+    comment: "Pick and place"
+    type: position
+    dir: gerbers/PnP
+    options:
+      output: "%f_cpl_%i.%x"
+      format: CSV
+      units: millimeters
+      separate_files_for_front_and_back: true
+      only_smd: false
+      columns:
+        - id: Ref
+          name: Designator
+        - Val
+        - Package
+        - id: PosX
+          name: "Mid X"
+        - id: PosY
+          name: "Mid Y"
+        - id: Rot
+          name: Rotation
+        - id: Side
+          name: Layer
