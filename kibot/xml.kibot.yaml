@@ -28,8 +28,8 @@ outputs:
   - name: 'bom_csv_single'
     comment: "Bill of Materials in CSV format"
     type: kibom
-    output: "%f-%i%I%v_nogroup.%x"
     options:
+      output: "%f-%i%I%v_nogroup.%x"
       format: CSV 
       conf:
         hide_pcb_info: true
