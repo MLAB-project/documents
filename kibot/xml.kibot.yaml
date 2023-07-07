@@ -21,6 +21,16 @@ outputs:
     comment: "Bill of Materials in CSV format"
     type: kibom
     options:
-      format: CSV  # HTML or CSV
+      format: CSV
       conf:
         hide_pcb_info: true
+        
+  - name: 'bom_csv'
+    comment: "Bill of Materials in CSV format"
+    type: kibom
+    output: "%f-%i%I%v_nogroup.%x"
+    options:
+      format: CSV 
+      conf:
+        hide_pcb_info: true
+        group_fields: []
