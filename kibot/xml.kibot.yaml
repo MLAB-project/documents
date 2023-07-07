@@ -17,9 +17,9 @@ global:
    kiauto_time_out_scale: 10
 
 outputs:
-  - name: 'bom'
+  - name: 'bom_csv'
     comment: "Bill of Materials in CSV format"
-    type: bom
-    dir: hw/sch_pcb/
+    type: kibom
+    dir: hw/sch_pcb
     options:
-      group_fields: ['Part', 'Part Lib', 'Value', 'Footprint', 'Footprint Lib']
+      format: CSV  # HTML or CSV
