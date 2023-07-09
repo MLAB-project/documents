@@ -75,8 +75,8 @@ if len(scheme):
     data['mod_ibom'] = scheme[0]
 
 
-if not original_data == data:
-    data['updated'] = datetime.now(timezone.utc).isoformat()
+# if not original_data == data:
+data['updated'] = datetime.now(timezone.utc).isoformat()
 
 print(data)
 yaml.dump(data, stream)
