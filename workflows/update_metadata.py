@@ -8,6 +8,7 @@ from yaml import load, dump
 from yaml import CLoader as Loader, CDumper as Dumper
 import os
 from glob import glob
+from datetime import datetime, timezone
 
 g = Github(os.environ['gh_token'])
 repo = g.get_repo(os.environ['gh_repository'])
@@ -35,6 +36,8 @@ else:
     data['mark'] = 50
     new = 1
 
+original_data = data.copy()
+
 if new:
     pass
 
@@ -44,7 +47,6 @@ data['github_url'] = os.environ.get('gh_url', "https://www.github.com/MLAB-proje
 data['github_repo'] = os.environ.get('gh_repo', "repository_name")
 data['github_branch'] = os.environ.get('gh_branch', "repository_branch")
 data['tags'] = repo.get_topics()
-
 data['title'] = data['github_repo']
 
 #if not 'images' in data:
@@ -72,7 +74,10 @@ scheme = glob("hw/**/*ibom.html", recursive=True)
 if len(scheme):
     data['mod_ibom'] = scheme[0]
 
-    
+
+if not original_data == data:
+    data['updated'] = datetime.now(timezone.utc).isoformat()
+
 print(data)
 yaml.dump(data, stream)
 stream.close()
