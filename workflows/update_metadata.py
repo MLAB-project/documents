@@ -3,7 +3,7 @@
 # Je potreba ho spoustet z rootu repozitare
 
 from github import Github
-import yaml
+import yaml, json
 from yaml import load, dump
 from yaml import CLoader as Loader, CDumper as Dumper
 import os
@@ -34,6 +34,7 @@ else:
     data = {}
     data['homepage'] = False
     data['mark'] = 50
+    data['status'] = 0 
     new = 1
 
 original_data = data.copy()
