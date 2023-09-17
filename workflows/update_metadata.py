@@ -42,12 +42,29 @@ if new:
     pass
 
 data['description'] = repo.description
+data['github_description'] = repo.description
 data['github_url'] = os.environ.get('gh_url', "https://www.github.com/MLAB-project")
 #data['github_org'] = os.environ.get('gh_org', 'repository_org')
 data['github_repo'] = os.environ.get('gh_repo', "repository_name")
 data['github_branch'] = os.environ.get('gh_branch', "repository_branch")
 data['tags'] = repo.get_topics()
 data['title'] = data['github_repo']
+
+## Try to find json file
+
+config_json = data['github_branch']+'.json'
+
+try:
+    stream = open(config_json, 'r')
+    json_data = json.load(stream)
+    stream.close()
+except:
+    print("Soubor neexistuje")
+    json_data = None
+
+if new and json_data:
+    data['status'] = json_data.get('status', 0)
+    data['mark'] = json_data.get('mark', 25)
 
 #if not 'images' in data:
 images = glob("**/*.jpg", recursive=True)
