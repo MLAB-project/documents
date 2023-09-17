@@ -56,9 +56,9 @@ data['title'] = data['github_repo']
 config_json = data['github_branch']+'.json'
 
 try:
-    stream = open(config_json, 'r')
+    stream_json = open(config_json, 'r')
     json_data = json.load(stream)
-    stream.close()
+    stream_json.close()
 except:
     print("Soubor neexistuje")
     json_data = None
