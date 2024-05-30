@@ -28,7 +28,7 @@ outputs:
       no_drillholes: false
       output: '%f-%i.%x'
       placeholder: false
-      remap:
+      #remap:
       show_components: all
       style: 'doc/assets/kibot/styles/mlab.json'
       variant: ''
@@ -50,7 +50,7 @@ outputs:
       no_drillholes: false
       output: '%f-%i.%x'
       placeholder: false
-      remap:
+      #remap:
       show_components: all
       style: 'doc/assets/kibot/styles/mlab.json'
       variant: ''
@@ -84,7 +84,7 @@ outputs:
       # [boolean=false] show placeholder for missing components
       placeholder: false
       # [dict|None] replacements for PCB references using components (lib:component)
-      remap:
+      #remap:
       # [list(string)|string=none] [none,all] list of components to draw, can be also a string for none or all.
       # The default is none
       show_components: all
@@ -126,7 +126,7 @@ outputs:
       # [boolean=false] show placeholder for missing components
       placeholder: false
       # [dict|None] replacements for PCB references using components (lib:component)
-      remap:
+      #remap:
       # [list(string)|string=none] [none,all] list of components to draw, can be also a string for none or all.
       # The default is none
       show_components: all
