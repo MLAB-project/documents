@@ -6,7 +6,6 @@ preflight:
   run_erc: false
   run_drc: false
   check_zone_fills: true
-  ignore_unconnected: false
   update_xml:
     enabled: true
     check_pcb_parity: true
@@ -21,7 +20,7 @@ outputs:
     options:
       mirror: true
       scaling: 0
-    layers: 
+    layers:
       - B.Fab
       - Edge.Cuts
 
@@ -41,11 +40,11 @@ outputs:
       plot_sheet_reference: false
       format: 'SVG'
       pages:
-        - layers: 
+        - layers:
           - B.Fab
           - Edge.Cuts
           mirror: true
-        - layers: 
+        - layers:
           - F.Fab
           - Edge.Cuts
           mirror: false

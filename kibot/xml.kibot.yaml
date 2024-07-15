@@ -6,7 +6,6 @@ preflight:
   run_erc: false
   run_drc: false
   check_zone_fills: true
-  ignore_unconnected: false
   update_xml:
     enabled: true
     check_pcb_parity: true
@@ -24,13 +23,13 @@ outputs:
       format: CSV
       conf:
         hide_pcb_info: true
-        
+
   - name: 'bom_csv_single'
     comment: "Bill of Materials in CSV format"
     type: kibom
     options:
       output: "%f-%i%I%v_nogroup.%x"
-      format: CSV 
+      format: CSV
       conf:
         hide_pcb_info: true
         group_fields: []
