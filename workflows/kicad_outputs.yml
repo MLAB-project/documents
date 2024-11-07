@@ -13,7 +13,7 @@ on:
       - '**.yml'
       - 'doc/assets'
   workflow_dispatch:
-
+  
 env:
   schema: "hw/sch_pcb/${{ github.event.repository.name }}.kicad_sch"
   board: "hw/sch_pcb/${{ github.event.repository.name }}.kicad_pcb"
@@ -32,15 +32,15 @@ jobs:
           submodules: recursive
           token: ${{ secrets.pat }}
           ref: ${{ github.head_ref }}
-
+          
       - uses: INTI-CMNB/KiBot@v2_dk8
         with:
           config: ${{ env.kibot }}/erc.kibot.yaml
           schema: ${{ env.schema }}
           board: ${{ env.board }}
           dir: ${{ env.dir }}
-
-
+          
+          
   DRC:
     runs-on: ubuntu-latest
     continue-on-error: true
@@ -50,15 +50,15 @@ jobs:
           submodules: recursive
           token: ${{ secrets.pat }}
           ref: ${{ github.head_ref }}
-
+          
       - uses: INTI-CMNB/KiBot@v2_dk8
         with:
           config: ${{ env.kibot }}/drc.kibot.yaml
           schema: ${{ env.schema }}
           board: ${{ env.board }}
           dir: ${{ env.dir }}
-
-
+          
+          
   schematics:
     runs-on: ubuntu-latest
     continue-on-error: true
@@ -68,7 +68,7 @@ jobs:
           submodules: recursive
           token: ${{ secrets.pat }}
           ref: ${{ github.head_ref }}
-
+          
       - uses: INTI-CMNB/KiBot@v2_dk8
         with:
           config: ${{ env.kibot }}/schematics.kibot.yaml
@@ -76,12 +76,12 @@ jobs:
           board: ${{ env.board }}
           dir: ${{ env.dir }}_docs
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
           name: doc_sch
           path: ${{ env.dir }}_docs/**
-
+          
   placement:
     name: "Placement and XML"
     runs-on: ubuntu-latest
@@ -92,21 +92,21 @@ jobs:
           submodules: recursive
           token: ${{ secrets.pat }}
           ref: ${{ github.head_ref }}
-
+          
       - uses: INTI-CMNB/KiBot@v2_dk8
         with:
           config: ${{ env.kibot }}/placement.kibot.yaml
           schema: ${{ env.schema }}
           board: ${{ env.board }}
           dir: ${{ env.dir }}_docs
-
+        
       - uses: INTI-CMNB/KiBot@v2_dk8
         with:
           config: ${{ env.kibot }}/xml.kibot.yaml
           schema: ${{ env.schema }}
           board: ${{ env.board }}
           dir: ${{ env.dir }}_docs
-
+          
 #       - name: "Rename output"
 #         run: |
 #           for file in $(find ${{env.dir}} -type f); do sudo mv "${file}" "${file//${{env.project}}/${{env.branch}}}" ; done
@@ -118,8 +118,8 @@ jobs:
           mkdir doc_xml || true ;
           mv hw/sch_pcb/*.xml doc_xml/ || true;
           mv hw/out_docs/*.csv doc_xml/ || true;
-
-      - uses: actions/upload-artifact@v3
+          
+      - uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
           name: doc_xml
@@ -127,7 +127,7 @@ jobs:
             doc_xml
 
       # Zde se zahazuji debugovaci videa
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
           name: doc_placement
@@ -145,15 +145,15 @@ jobs:
           submodules: recursive
           token: ${{ secrets.pat }}
           ref: ${{ github.head_ref }}
-
+          
       - uses: INTI-CMNB/KiBot@v2_dk8
         with:
           config: ${{ env.kibot }}/report.kibot.yaml
           schema: ${{ env.schema }}
           board: ${{ env.board }}
           dir: ${{ env.dir }}_report
-
-      - uses: actions/upload-artifact@v3
+        
+      - uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
           name: doc_report
@@ -169,18 +169,18 @@ jobs:
           submodules: recursive
           token: ${{ secrets.pat }}
           ref: ${{ github.head_ref }}
-
+          
       - uses: INTI-CMNB/KiBot@v2_dk8
         with:
           config: ${{ env.kibot }}/ibom.kibot.yaml
           schema: ${{ env.schema }}
           board: ${{ env.board }}
           dir: ${{ env.dir }}_ibom
-
+          
       - name: "Rename output"
         run: for file in $(find ${{env.dir}} -type f); do sudo mv "${file}" "${file//${{env.project}}/${{env.branch}}}" ; done
-
-      - uses: actions/upload-artifact@v3
+        
+      - uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
           name: doc_ibom
@@ -198,8 +198,8 @@ jobs:
           submodules: recursive
           token: ${{ secrets.pat }}
           ref: ${{ github.head_ref }}
-
-      - uses: INTI-CMNB/KiBot@v2_dk8
+          
+      - uses: INTI-CMNB/KiBot@v2_dk8        
         with:
           config: ${{ env.kibot }}/gerbers.kibot.yaml
           schema: ${{ env.schema }}
@@ -209,8 +209,8 @@ jobs:
 
       - name: "Rename output"
         run: for file in $(find ${{env.dir}}_gerbers -type f); do sudo mv "${file}" "${file//${{env.project}}/${{env.branch}}}" || true ; done
-
-      - uses: actions/upload-artifact@v2
+          
+      - uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
           name: hw_cam_profi
@@ -227,14 +227,14 @@ jobs:
           submodules: recursive
           token: ${{ secrets.pat }}
           ref: ${{ github.head_ref }}
-
+          
       - uses: INTI-CMNB/KiBot@v2_dk8
         with:
           config: ${{ env.kibot }}/cad.kibot.yaml
           schema: ${{ env.schema }}
           board: ${{ env.board }}
           dir: ${{ env.dir }}_cad
-
+          
       - uses: INTI-CMNB/KiBot@v2_dk8
         with:
           config: ${{ env.kibot }}/render.kibot.yaml
@@ -243,13 +243,13 @@ jobs:
           dir: ${{ env.dir }}_img
           verbose: 3
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
           name: doc_cad
           path: ${{ env.dir }}_cad/**
-
-      - uses: actions/upload-artifact@v3
+          
+      - uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
           name: doc_img
@@ -271,16 +271,16 @@ jobs:
         git submodule update --remote || true
 
     - name: Download a Build Artifact
-      uses: actions/download-artifact@v3.0.0
-
+      uses: actions/download-artifact@v4
+    
     - name: Remove old manufarturing data
-      run: |
+      run: | 
         rm -r hw/cam_profi || true
         rm -r doc/gen || true
-
+    
     - name: Extract to right position
       run: |
-
+    
         mkdir doc || true
         mkdir doc/gen || true
         mkdir doc/gen/img || true
@@ -291,7 +291,7 @@ jobs:
         mkdir hw/cam_profi/gbr || true
         mkdir hw/cam_profi/assembly || true
         mkdir hw/cam_profi/ibom || true
-
+                
         cp -r doc_img/* doc/gen/img || true
         cp -r doc_cad/cad/* doc/gen || true
         cp -r hw_cam_profi/* hw/cam_profi/gbr || true
@@ -313,9 +313,9 @@ jobs:
         rm -r doc_xml || true
         rm -r doc_report || true
         rm -r doc_ibom || true
-
+        
         git add . -f
-
+        
     - uses: stefanzweifel/git-auto-commit-action@v4.16.0
       with:
         commit_message: Update actions products
