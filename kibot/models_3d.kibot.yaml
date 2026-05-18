@@ -1,0 +1,14 @@
+kibot:
+  version: 1
+
+preflight:
+  run_erc: false
+  run_drc: false
+  check_zone_fills: true
+  update_xml:
+    enabled: true
+    as_warnings: true
+
+import:
+  - includes/step.kibot.yaml
+  - includes/blender_3d.kibot.yaml
